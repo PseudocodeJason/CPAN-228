@@ -13,7 +13,7 @@ import com.cpan252.tekkenreborn.model.Fighter;
 import com.cpan252.tekkenreborn.repository.FighterRepository;
 
 @Repository
-public class JdbcFighterRepository {
+public class JdbcFighterRepository implements FighterRepository {
    // We could use @Autowired annotation here but it's not recommended
     // This approach is more testable and more recommended than using @Autowired
     private JdbcTemplate jdbcTemplate;
