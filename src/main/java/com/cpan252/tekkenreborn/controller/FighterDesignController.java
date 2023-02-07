@@ -2,17 +2,17 @@ package com.cpan252.tekkenreborn.controller;
 
 import java.util.EnumSet;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.Errors;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.cpan252.tekkenreborn.model.Fighter;
-import com.cpan252.tekkenreborn.model.FighterPool;
 import com.cpan252.tekkenreborn.model.Fighter.Anime;
+import com.cpan252.tekkenreborn.repository.impl.JdbcFighterRepository;
 
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
@@ -21,9 +21,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 @Slf4j
 @RequestMapping("/Fighterdesign")
-// this indicates that fighterPool has a lifetime of a session
-@SessionAttributes("fighterPool")
 public class FighterDesignController {
+
+    @Autowired
+    private JdbcFighterRepository fighterRepository;
     
     @GetMapping
     public String design() {
@@ -35,17 +36,6 @@ public class FighterDesignController {
         var animes = EnumSet.allOf(Anime.class);
         model.addAttribute("animes", animes);
         log.info("animes converted to string:  {}", animes);
-    }
-
-    /**
-     * We are providing fighter pool model, to add
-     * fighter to this model and display it on a different page
-     * 
-     * @return Fighter Pool model that will last a lifetime of a session
-     */
-    @ModelAttribute(name = "fighterPool")
-    public FighterPool fighterPool() {
-        return new FighterPool();
     }
 
     /**
@@ -67,12 +57,12 @@ public class FighterDesignController {
     }
 
     @PostMapping
-    public String processFighterAddition(@Valid Fighter fighter,
-            @ModelAttribute FighterPool pool, Errors errors) {
-        if (errors.hasErrors()) {
+    public String processFighterAddition(@Valid Fighter fighter, BindingResult result) {
+        if (result.hasErrors()) {
             return "fighter_designer";
         }
-        pool.add(fighter);
+        log.info("Processing fighter: {}", fighter);
+        fighterRepository.save(fighter);
         return "redirect:/Fighterdesign";
     }
 
