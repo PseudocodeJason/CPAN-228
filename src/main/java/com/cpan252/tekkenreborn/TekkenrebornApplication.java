@@ -33,10 +33,7 @@ public class TekkenrebornApplication {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		//ApplicationContext context = SpringApplication.run(TekkenrebornApplication.class, args);
 		SpringApplication.run(TekkenrebornApplication.class, args);
-		
-		//HomeController controller = context.getBean(HomeController.class);
 	}
 
 	@Bean
@@ -62,13 +59,114 @@ public class TekkenrebornApplication {
 			.damagePerHit(90)
 			.health(2200)
 			.resistance(new BigDecimal(0.5)).build());
-			
+
 			repository.save(Fighter.builder()
-			.name("Steve Fox")
-			.animeFrom(Anime.TEKKEN)
-			.damagePerHit(80)
-			.health(25000)
-			.resistance(new BigDecimal(0.5)).build());
+					.name("Steve Fox")
+					.animeFrom(Anime.TEKKEN)
+					.damagePerHit(80)
+					.health(25000)
+					.resistance(new BigDecimal(0.5)).build());
+			repository.save(Fighter.builder()
+					.name("Hwoarang")
+					.animeFrom(Anime.TEKKEN)
+					.damagePerHit(89)
+					.health(2000)
+					.resistance(new BigDecimal(0.5)).build());
+
+			repository.save(Fighter.builder()
+					.name("Panda")
+					.animeFrom(Anime.TEKKEN)
+					.damagePerHit(86)
+					.health(2100)
+					.resistance(new BigDecimal(0.5)).build());
+
+			repository.save(Fighter.builder()
+					.name("Eddy Gordo")
+					.animeFrom(Anime.TEKKEN)
+					.damagePerHit(90)
+					.health(2200)
+					.resistance(new BigDecimal(0.5)).build());
+
+			repository.save(Fighter.builder()
+					.name("Steve Fox")
+					.animeFrom(Anime.TEKKEN)
+					.damagePerHit(80)
+					.health(25000)
+					.resistance(new BigDecimal(0.5)).build());
+			repository.save(Fighter.builder()
+					.name("Law")
+					.animeFrom(Anime.TEKKEN)
+					.damagePerHit(89)
+					.health(2000)
+					.resistance(new BigDecimal(0.5)).build());
+
+			repository.save(Fighter.builder()
+					.name("Lei Wulong")
+					.animeFrom(Anime.TEKKEN)
+					.damagePerHit(86)
+					.health(2100)
+					.resistance(new BigDecimal(0.5)).build());
+
+			repository.save(Fighter.builder()
+					.name("Anna")
+					.animeFrom(Anime.TEKKEN)
+					.damagePerHit(90)
+					.health(2200)
+					.resistance(new BigDecimal(0.5)).build());
+
+			repository.save(Fighter.builder()
+					.name("Xiaoyu")
+					.animeFrom(Anime.TEKKEN)
+					.damagePerHit(80)
+					.health(25000)
+					.resistance(new BigDecimal(0.5)).build());
+			repository.save(Fighter.builder()
+					.name("Brian Fury")
+					.animeFrom(Anime.TEKKEN)
+					.damagePerHit(89)
+					.health(2000)
+					.resistance(new BigDecimal(0.5)).build());
+
+			repository.save(Fighter.builder()
+					.name("Kuma")
+					.animeFrom(Anime.TEKKEN)
+					.damagePerHit(86)
+					.health(2100)
+					.resistance(new BigDecimal(0.5)).build());
+
+			repository.save(Fighter.builder()
+					.name("Paul Phoenix")
+					.animeFrom(Anime.TEKKEN)
+					.damagePerHit(90)
+					.health(2200)
+					.resistance(new BigDecimal(0.5)).build());
+
+			repository.save(Fighter.builder()
+					.name("King")
+					.animeFrom(Anime.TEKKEN)
+					.damagePerHit(80)
+					.health(25000)
+					.resistance(new BigDecimal(0.5)).build());
+			repository.save(Fighter.builder()
+					.name("Bruce Irvin")
+					.animeFrom(Anime.TEKKEN)
+					.damagePerHit(89)
+					.health(2000)
+					.resistance(new BigDecimal(0.5)).build());
+
+			repository.save(Fighter.builder()
+					.name("Dragunov")
+					.animeFrom(Anime.TEKKEN)
+					.damagePerHit(86)
+					.health(2100)
+					.resistance(new BigDecimal(0.5)).build());
+
+			repository.save(Fighter.builder()
+					.name("Lars Alexandersson")
+					.animeFrom(Anime.TEKKEN)
+					.damagePerHit(90)
+					.health(2200)
+					.resistance(new BigDecimal(0.5)).build());
 		};
 	}
 
