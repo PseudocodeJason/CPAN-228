@@ -2,6 +2,7 @@ package com.cpan252.tekkenreborn.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -18,6 +19,7 @@ import com.cpan252.tekkenreborn.repository.UserRepository;
  * class to define beans that we want to use in our application.
  */
 @Configuration
+@EnableMethodSecurity
 public class SecurityConfig {
 
     @Bean
@@ -41,13 +43,13 @@ public class SecurityConfig {
         return http
                 .authorizeHttpRequests()
                 .requestMatchers(toH2Console()).permitAll()
-                .requestMatchers("/design", "/fighterlist")
+                .requestMatchers("/Fighterdesign", "/fighterlist")
                 .hasRole("USER")
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()
-                .loginPage("/login")
-
+                .loginPage("/")
+                .defaultSuccessUrl("/Fighterdesign", true)
                 .and()
                 .logout()
                 .logoutSuccessUrl("/")
