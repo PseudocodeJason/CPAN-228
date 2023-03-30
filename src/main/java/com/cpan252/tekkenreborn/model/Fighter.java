@@ -3,6 +3,8 @@ package com.cpan252.tekkenreborn.model;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -40,6 +42,8 @@ public class Fighter {
     public enum Anime {
         NARUTO("Naruto"), BLEACH("Bleach"), ONE_PIECE("One Piece"), TEKKEN("Tekken");
 
+        @JsonValue
+        @NotBlank
         private String title;
 
         private Anime(String title) {
